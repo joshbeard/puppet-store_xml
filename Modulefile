@@ -1,0 +1,5 @@
+name 'joshbeard-store_xml'
+version '0.0.1'
+license 'Apache 2.0'
+summary 'Report handler that stores reports in XML'
+project_page 'https://github.com/joshbeard/puppet-store_xml'
