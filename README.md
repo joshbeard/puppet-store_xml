@@ -11,6 +11,9 @@ XML instead of YAML.
 
 The `activesupport` Rubygem is required.
 
+NOTE: activesupport requires the `builder` gem, but may not install it
+automatically.  You'll may need to do this yourself.
+
 ## Usage
 
 1.  Install the `activesupport` gem on your Puppet master
@@ -28,12 +31,20 @@ The `activesupport` Rubygem is required.
 
     In your syslog, that's likely the culprit.
 
-2.  Install puppet-store_xml as a module in your Puppet master's module
+2.  You may need to manually install the `builder` gem if ActiveSupport didn't.
+
+        $ sudo gem install builder
+
+    On PE, use the PE vendored `gem`:
+
+        $ sudo /opt/puppet/bin/gem install builder
+
+3.  Install puppet-store_xml as a module in your Puppet master's module
     path.
 
-3.  Run the Puppet agent on your master(s) to initiate `pluginsync`
+4.  Run the Puppet agent on your master(s) to initiate `pluginsync`
 
-4.  Enable the report handler by appending `store_xml` to the `reports` setting
+5.  Enable the report handler by appending `store_xml` to the `reports` setting
     in the master's `puppet.conf` file under the `master` section.
 
 The XML reports will be placed in `$reportdir/xml/$host`
